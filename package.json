@@ -1,6 +1,6 @@
 {
   "name" : "gulp-compress" ,
-  "version" : "0.0.1" ,
+  "version" : "0.0.2" ,
   "description" : "用于精简 *.css、*.js 与 *.html 文件的模块。" ,
   "author" : {
     "name" : "Milk Lee" ,

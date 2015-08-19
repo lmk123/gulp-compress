@@ -1,4 +1,4 @@
-# gulp-es6-sass
+# gulp-compress
 
 用于精简 *.css、*.js 与 *.html 文件的模块。
 
