@@ -1,0 +1,29 @@
+{
+  "name" : "gulp-compress" ,
+  "version" : "0.0.1" ,
+  "description" : "用于精简 *.css、*.js 与 *.html 文件的模块。" ,
+  "author" : {
+    "name" : "Milk Lee" ,
+    "email" : "me@limingkai.cn" ,
+    "url" : "http://www.limingkai.cn/"
+  } ,
+  "main" : "index.js" ,
+  "homepage" : "https://github.com/lmk123/gulp-compress" ,
+  "repository" : {
+    "type" : "git" ,
+    "url" : "https://github.com/lmk123/gulp-compress.git"
+  } ,
+  "keywords" : [
+    "gulp" ,
+    "compress" ,
+    "uglify" ,
+    "htmlmin" ,
+    "minify"
+  ] ,
+  "license" : "MIT" ,
+  "dependencies" : {
+    "gulp-uglify" : "*" ,
+    "gulp-minify-css" : "*" ,
+    "gulp-htmlmin" : "*"
+  }
+}
