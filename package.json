@@ -1,7 +1,7 @@
 {
   "name" : "gulp-compress" ,
-  "version" : "0.0.2" ,
-  "description" : "用于精简 *.css、*.js 与 *.html 文件的模块。" ,
+  "version" : "0.0.3" ,
+  "description" : "An easy-to-use module to compress your *.css , *.js and *.html files." ,
   "author" : {
     "name" : "Milk Lee" ,
     "email" : "me@limingkai.cn" ,

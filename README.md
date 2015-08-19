@@ -1,16 +1,14 @@
 # gulp-compress
 
-用于精简 *.css、*.js 与 *.html 文件的模块。
+An easy-to-use module to compress your *.css , *.js and *.html files.
 
-## 安装与使用
-
-通过 npm 安装：
+## Install
 
 ```
 npm install gulp-compress
 ```
 
-然后在代码里使用：
+## Usage
 
 ```js
 var gulp    = require('gulp'),
@@ -22,17 +20,25 @@ var gulp    = require('gulp'),
 require('gulp-compress')(gulp, options);
 ```
 
-这样就有五个任务添加到了你的 gulp 中：
+There are few tasks added in your gulp:
 
- + `copy` : 将 `options.src` 下的[这些文件](https://github.com/lmk123/gulp-compress/blob/master/index.js#L27)复制到 `options.dest` 中
- + `compress-html`：将 `options.src` 下的所有 `html` 文件精简并输出到 `options.dest` 中
- + `compress-css`：将 `options.src` 下的所有 `css` 文件精简并输出到 `options.dest` 中
- + `compress-js`：将 `options.src` 下的所有 `js` 文件精简并输出到 `options.dest` 中
- + `compress`：并行执行上面四个任务
+ + `copy` : Copy files which are match [these glob](https://github.com/lmk123/gulp-compress/blob/master/index.js#L27) to `options.dest`
+ + `compress-html`：Compress *.html files which are under `options.src` then output to `options.dest`
+ + `compress-css`：Compress *.css files which are under `options.src` then output to `options.dest`
+ + `compress-js`：Compress *.js files which are under `options.src` then output to `options.dest`
+ + `compress`：It's run above tasks parallel.
  
-## 设置项
- 
- 所有设置项及其默认值都在[这里](https://github.com/lmk123/gulp-compress/blob/master/index.js#L8)。
+ Now use them like this!
 
-## 许可
+```
+gulp compress
+```
+
+You may need [gulp-es6-sass](https://www.npmjs.com/package/gulp-es6-sass) else :)
+ 
+## Options
+
+All options and its default value are list on [here](https://github.com/lmk123/gulp-compress/blob/master/index.js#L8). It's really self-explanation.
+
+## License
 MIT
