@@ -57,7 +57,7 @@ function main( gulp , options ) {
         return compressJs();
     } );
 
-    compressTaskName && gulp.task( compressTaskName , [
+    compressTaskName && copyTaskName && compressHtmlTaskName && compressCssTaskName && compressJsTaskName && gulp.task( compressTaskName , [
         copyTaskName , compressHtmlTaskName , compressCssTaskName , compressJsTaskName
     ] );
 
@@ -91,6 +91,29 @@ function main( gulp , options ) {
         copy : copy ,
         compressHtml : compressHtml ,
         compressCss : compressCss ,
-        compressJs : compressJs
+        compressJs : compressJs ,
+        compress : function ( cb ) {
+            parallel( [ compressCss , compressHtml , compressJs , copy ] , cb );
+        }
+    }
+}
+
+/**
+ * 平行执行多个任务
+ * @param {Function[]} tasks - 任务数组
+ * @param {Function} [cb] - 全部任务都完成的回调函数，可选。
+ */
+function parallel( tasks , cb ) {
+    var count = 0 , all = tasks.length;
+
+    tasks.forEach( function ( func ) {
+        func().on( 'finish' , done );
+    } );
+
+    function done() {
+        count += 1;
+        if ( count === all ) {
+            cb && cb();
+        }
     }
 }
