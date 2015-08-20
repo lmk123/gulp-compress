@@ -4,20 +4,26 @@ var minifyJS   = require( 'gulp-uglify' ) ,
 
 module.exports = main;
 
+main.minifyJs = minifyJS;
+main.minifyCss = minifyCSS;
+main.minifyHtml = minifyHTML;
+
 /**
  * @params {Gulp} gulp - 要附加任务的 gulp 对象，例如 require('gulp')
  * @params {Object} [options] - 设置
  * @params {String} [options.src] - 根目录
  * @params {String} [options.dest] - 目标目录
+ *
  * @params {String|String[]} [options.copyFiles] - glob 表达式，匹配所有需要复制到目标文件夹的文件
  * @params {String|String[]} [options.jsFiles] - glob 表达式，匹配所有需要精简的 js 文件
  * @params {String|String[]} [options.cssFiles] - glob 表达式，匹配所有需要精简的 css 文件
  * @params {String|String[]} [options.htmlFiles] - glob 表达式，匹配所有需要精简的 html 文件
- * @params {String} [options.copyTaskName] - 执行复制操作的任务名字
- * @params {String} [options.compressHtmlTaskName] - 精简 html 文件的任务的名字
- * @params {String} [options.compressCssTaskName] - 精简 css 文件的任务的名字
- * @params {String} [options.compressJsTaskName] - 精简 js 文件的任务的名字
- * @params {String} [options.compress] - 组合上面四个操作的任务的名字
+ *
+ * @params {String|Boolean} [options.copyTaskName] - 执行复制操作的任务名字。设为 false 则不会创建这个任务。
+ * @params {String|Boolean} [options.compressHtmlTaskName] - 精简 html 文件的任务的名字。设为 false 则不会创建这个任务。
+ * @params {String|Boolean} [options.compressCssTaskName] - 精简 css 文件的任务的名字。设为 false 则不会创建这个任务。
+ * @params {String|Boolean} [options.compressJsTaskName] - 精简 js 文件的任务的名字。设为 false 则不会创建这个任务。
+ * @params {String|Boolean} [options.compress] - 组合上面四个操作的任务的名字。设为 false 则不会创建这个任务。
  */
 function main( gulp , options ) {
     var options              = options || {} ,
@@ -35,23 +41,25 @@ function main( gulp , options ) {
         compressJsTaskName   = options.compressJsTaskName || 'compress-js' ,
         compressTaskName     = options.compressTaskName || 'compress';
 
-    gulp.task( copyTaskName , function () {
+    copyTaskName && gulp.task( copyTaskName , function () {
         return copy();
     } );
 
-    gulp.task( compressHtmlTaskName , function () {
+    compressHtmlTaskName && gulp.task( compressHtmlTaskName , function () {
         return compressHtml();
     } );
 
-    gulp.task( compressCssTaskName , function () {
+    compressCssTaskName && gulp.task( compressCssTaskName , function () {
         return compressCss();
     } );
 
-    gulp.task( compressJsTaskName , function () {
+    compressJsTaskName && gulp.task( compressJsTaskName , function () {
         return compressJs();
     } );
 
-    gulp.task( compressTaskName , [ copyTaskName , compressHtmlTaskName , compressCssTaskName , compressJsTaskName ] );
+    compressTaskName && gulp.task( compressTaskName , [
+        copyTaskName , compressHtmlTaskName , compressCssTaskName , compressJsTaskName
+    ] );
 
     function compressJs( path , myDest ) {
         return gulp.src( path || jsFiles )
