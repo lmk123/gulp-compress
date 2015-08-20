@@ -1,6 +1,6 @@
 {
   "name" : "gulp-compress" ,
-  "version" : "0.0.7" ,
+  "version" : "0.0.8" ,
   "description" : "An easy-to-use module to compress your *.css , *.js and *.html files." ,
   "author" : {
     "name" : "Milk Lee" ,
@@ -22,8 +22,8 @@
   ] ,
   "license" : "MIT" ,
   "dependencies" : {
-    "gulp-uglify" : "*" ,
-    "gulp-minify-css" : "*" ,
-    "gulp-htmlmin" : "*"
+    "gulp-uglify" : "^1.2.0" ,
+    "gulp-minify-css" : "^1.2.0" ,
+    "gulp-htmlmin" : "^1.1.3"
   }
 }
