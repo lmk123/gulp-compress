@@ -32,8 +32,8 @@ function main( gulp , options ) {
 
         copyFiles            = options.copyFiles || src + '/**/*.{eot,svg,ttf,woff,jpg,png,gif,bmp}' ,
         jsFiles              = options.jsFiles || src + '/**/*.js' ,
-        cssFiles             = options.jsFiles || src + '/**/*.css' ,
-        htmlFiles            = options.jsFiles || src + '/**/*.html' ,
+        cssFiles             = options.cssFiles || src + '/**/*.css' ,
+        htmlFiles            = options.htmlFiles || src + '/**/*.html' ,
 
         copyTaskName         = options.copyTaskName || 'copy' ,
         compressHtmlTaskName = options.compressHtmlTaskName || 'compress-html' ,
