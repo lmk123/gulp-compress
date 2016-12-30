@@ -1,6 +1,7 @@
 var minifyJS   = require( 'gulp-uglify' ) ,
     minifyCSS  = require( 'gulp-minify-css' ) ,
-    minifyHTML = require( 'gulp-htmlmin' );
+    minifyHTML = require( 'gulp-htmlmin' ) ,
+    newer      = require('gulp-newer') ;
 
 module.exports = main;
 
@@ -84,6 +85,7 @@ function main( gulp , options ) {
 
     function copy( path , myDest ) {
         return gulp.src( path || copyFiles )
+            .pipe(newer( myDest || dest ))
             .pipe( gulp.dest( myDest || dest ) );
     }
 
